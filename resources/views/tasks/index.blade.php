@@ -25,7 +25,8 @@
           </div>
           <div class="list-group">
             @foreach($folders as $folder)
-            <a href="{{ route('tasks.index', ['id' => $folder->id]) }}" class="lis\t-group-item">
+            <a href="{{ route('tasks.index', ['id' => $folder->id]) }}" 
+              class="list-group-item {{ $current_folder_id === $folder->id ? 'active' : '' }}">
               {{ $folder->title }}
             </a>
             @endforeach
@@ -33,6 +34,7 @@
         </nav>
       </div>
       <div class="column col-md-8">
+      </div>
     </div>
   </div>
 </main>
