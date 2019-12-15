@@ -55,8 +55,13 @@
               @foreach($tasks as $task)
               <tr>
                 <td>{{ $task->title }}</td>
-                <td>
+                <!-- <td>
                   <span class="label">{{ $task->status_class }}</span>
+                </td> -->
+                <td>
+                  <span class="label {{ $task->status_class }}">
+                    {{ $task->status_label }}
+                  </span>
                 </td>
                 <td>{{ $task->formatted_due_date }}</td>
                 <td><a href="#">編集</a></td>
