@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>ToDo App</title>
-    <link rel="stylesheetf" href="/css/styles.css">
+    <link rel="stylesheet" href="/css/styles.css">
   </head>
   <body>
     <header>
@@ -22,6 +22,15 @@
                 フォルダを追加する
               </div>
               <div class="panel-body">
+                @if($errors->any())
+                <div class="alert alert-danger">
+                  <ul>
+                    @foreach($errors->all() as $message)
+                    <li>{{ $message }}</li>
+                    @endforeach
+                  </ul>
+                </div>
+                @endif
                 <form action="{{ route('folders.create') }}" method="post">
                   @csrf
                   <div class="form-group">
