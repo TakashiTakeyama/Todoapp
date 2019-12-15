@@ -21,7 +21,7 @@
         <nav class="panel panel-default">
           <div class="panel-heading">フォルダ</div>
           <div class="panel-body">
-            <a href="#" class="btn btn-default btn-block">フォルダを追加する</a>
+            <a href="{{ route('folders.create') }}" class="btn btn-default btn-block">フォルダを追加する</a>
           </div>
           <div class="list-group">
             @foreach($folders as $folder)
@@ -58,7 +58,12 @@
                 <td>
                   <span class="label">{{ $task->status_class }}</span>
                 </td>
-                <td>{{ $task->due_date }}</td>
+                <td>
+                  <span class="label {{ $task->status_class }}">
+                    {{ $task->status_label }}
+                  </span>
+                </td>
+                <td>{{ $task->formatted_due_date }}</td>
                 <td><a href="#">編集</a></td>
               </tr>
               @endforeach
