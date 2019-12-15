@@ -26,7 +26,14 @@ class CreateFolder extends FormRequest
     {
         return [
             //required Laravelがデフォルトで提供しているたくさんのルールのうちの一つ
-            'title' => 'required',
+            'title' => 'required|max:20',
+        ];
+    }
+
+    public function attributes()
+    {
+        return [
+            'title' => 'フォルダ名',
         ];
     }
 }
