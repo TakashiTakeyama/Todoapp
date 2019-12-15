@@ -3,6 +3,7 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use Carbon\Carbon;
 
 class Task extends Model
 {       //状態定義
@@ -31,5 +32,10 @@ class Task extends Model
         //     case 3:
         //         return '??';
         // }
+    }
+
+    public function getFormattedDueDateAttribute()
+    {
+        return Carbon::createFromFormat('Y-m-d', $this->attributes['due_date'])->format('y/m/d');
     }
 }
