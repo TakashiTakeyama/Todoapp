@@ -1,8 +1,7 @@
 @extends('layout')
 
 @section('styles')
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
-<link rel="stylesheet" href="https://npmcdn.com/flatpickr/dist/themes/material_blue.css">
+  @include('share.flatpickr.styles');
 @endsction
 
 @section('content')
@@ -38,6 +37,7 @@
             </div>
             <div class="form-group">
               <label for="due_date">期限</label>
+              <!-- idはjavascriptやcssで指定する為の要素、nameはPHPで値を送信する為の物 -->
               <input type="text" class="form-controll" name="due_datee" id="due_date" value="{{ old('due_date') ?? $task->formatted_due_date }}" />
             </div>
             <div class="text-right">
@@ -52,15 +52,5 @@
 @endsection
 
 @section('scripts')
-<script src="https://npmcdn.com/flatpickr/dist/flatpickr.min.js"></script>
-<script src="https://npmcdn.com/flatpickr/dist/110n/ja.js"></script>
-<script>
-  flatpickr(document.getElementById('due_date'),
-  {
-    locale: 'ja',
-    dateFormat: "Y/m/d",
-    minDate: new Date()
-  });
-</script>
+  @include('share.flatpickr.scripts');
 @endforeach
-
