@@ -53,4 +53,4 @@
 
 @section('scripts')
   @include('share.flatpickr.scripts');
-@endforeach
+@endsection
