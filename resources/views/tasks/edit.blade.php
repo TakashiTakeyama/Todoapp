@@ -1,8 +1,8 @@
 @extends('layout')
 
 @section('styles')
-  @include('share.flatpickr.styles');
-@endsction
+  @include('share.flatpickr.styles')
+@endsection
 
 @section('content')
 <div class="container">
@@ -23,11 +23,11 @@
             <div class="form-group">
               <label for="title">タイトル</label>
               <!-- old関数は直前の入力値を取得する、第二引数を指定するとそれがデフォルト値になる -->
-              <input type="text" class="form-controll" name="title" id="title" value="{{ old('title') ?? $task->title }}" />
+              <input type="text" class="form-control" name="title" id="title" value="{{ old('title') ?? $task->title }}" />
             </div>
             <div class="form-group">
               <label for="status">状態</label>
-              <select name="status" id="status" class="form-controll">
+              <select name="status" id="status" class="form-control">
                 @foreach(\App\Task::STATUS as $key => $val)
                 <option value="{{ $key }}" {{ $key == old('status', $task->status) ? 'selected' : ''}}>
                   {{ $val['label'] }}
@@ -38,7 +38,7 @@
             <div class="form-group">
               <label for="due_date">期限</label>
               <!-- idはjavascriptやcssで指定する為の要素、nameはPHPで値を送信する為の物 -->
-              <input type="text" class="form-controll" name="due_datee" id="due_date" value="{{ old('due_date') ?? $task->formatted_due_date }}" />
+              <input type="text" class="form-control" name="due_date" id="due_date" value="{{ old('due_date') ?? $task->formatted_due_date }}" />
             </div>
             <div class="text-right">
               <button type="submit" class="btn btn-primary">送信</button>
@@ -52,5 +52,5 @@
 @endsection
 
 @section('scripts')
-  @include('share.flatpickr.scripts');
+  @include('share.flatpickr.scripts')
 @endsection
