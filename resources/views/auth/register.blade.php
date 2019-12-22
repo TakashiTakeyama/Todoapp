@@ -14,25 +14,26 @@
             @endforeach
           </div>
           @endif
-          <form aciton="{{ route('regester') }}" method="post">
+          <form action="{{ route('register') }}" method="post">
             @csrf
             <div class="form-group">
             <label for="email">メールアドレス</label>
-            <input type="text" class="form-controll" id="email" name="email" value="{{ old('email') }}">
+            <input type="text" class="form-control" id="email" name="email" value="{{ old('email') }}">
             </div>
             <div class="form-group">
             <label for="name">ユーザー名</label>
-            <input type="text" class="form-controll" id="name" name="name" value="{{ old('name') }}">
+            <input type="text" class="form-control" id="name" name="name" value="{{ old('name') }}">
             </div>
             <div class="form-group">
             <label for="password">パスワード</label>
-            <input type="text" class="form-controll" id="password" name="password" value="{{ old('password') }}">
+            <input type="password" class="form-control" id="password" name="password">
             </div>
             <div class="form-group">
             <label for="password-confirm">パスワード（確認）</label>
-            <input type="text" class="form-controll" id="password-confirm" name="password-confirmation">
+            <input type="password" class="form-control" id="password-confirm" name="password_confirmation">
             </div>
             <div class="text-right">
+              <button type="submit" class="btn btn-primary">送信</button>
             </div>
           </form>
           </form>
@@ -43,3 +44,4 @@
     </div>
   </div>
 </div>
+@endsection
