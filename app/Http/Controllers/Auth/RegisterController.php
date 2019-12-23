@@ -37,6 +37,7 @@ class RegisterController extends Controller
      */
     public function __construct()
     {
+        //Kernel.phpにguestは定義されている。
         $this->middleware('guest');
     }
 
