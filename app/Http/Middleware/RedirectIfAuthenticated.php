@@ -18,7 +18,9 @@ class RedirectIfAuthenticated
     public function handle($request, Closure $next, $guard = null)
     {
         if (Auth::guard($guard)->check()) {
-            return redirect('/home');
+            /*root画面にredirect
+            このmiddlewareは会員登録コントローラーやログインコントローラーのコンストラクタで適用される。*/
+            return redirect('/');
         }
 
         return $next($request);
